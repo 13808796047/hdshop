@@ -1,0 +1,43 @@
+<load file="./hdtg/App/Admin/Tpl/Common/header.html" />
+<bootstrap/>
+<div id="map">
+	<span class='title'>地区列表</span>
+</div>
+<div id="content">
+	<table id="table" class='table1'>
+		<thead>
+			<tr>
+				<th width="5%"></th>
+				<th width="25%">地区名称</th>
+				
+				<th width="10%">地区排序</th>
+				<th width="10%">是否显示</th>
+				<th >操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		<list from ="$locality" name='v'>
+			<tr class="level_{$v._level} pid_{$v.pid}" cid="{$v.lid}" level="{$v.level}">
+				<td><a class='btn btn-xs btn-info unfold' style="font-size:16px;" href="">+</a></td>
+				<td>{$v._name}</td>
+				
+				<td>{$v.sort}</td>
+				<td>
+					<if value="$v.display">
+						显示
+						<else/>
+						隐藏
+					</if>
+				</td>
+				<td>
+					<a class='btn btn-success btn-xs' href="{|U:add,array('lid'=>$v['lid'])}">添加地区</a>
+					<a class='btn btn-danger btn-xs' href="{|U:edit,array('lid'=>$v['lid'])}">编辑</a>
+					<a class='btn btn-warning btn-xs delAffirm' href="javascript:hd_ajax('{|U:del}',{lid:{$v.lid}})">删除</a>
+				</td>
+			</tr>
+		</list>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<load file="./hdtg/App/Admin/Tpl/Common/header.html" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AC37be9efe7459c38f04c34a964155a2"></script>
+<script type="text/javascript" src='__PUBLIC__/js/shop.js'></script>
+<div id="map">
+	<span class='title'>编辑商品</span>
+</div>
+<div id="content">
+	<form  onsubmit="return hd_submit(this,'{|U:index}')" class='hd-form' method="post">
+	<input type='hidden' name='gid' value='{$goods.gid}'/>
+		<table class='table1'>
+
+			<tbody>
+
+				<tr>
+					<td >所属商家</td>
+					<td>
+						
+						<input type="hidden" name="shopid" value='{$goods.shopid}'/>
+						{$goods.shopname}
+					</td>
+					
+					
+					
+				</tr>
+				<tr>
+				
+					<td>所属分类</td>
+					<td>
+						
+						<select name='cid'>
+						<option value='{$goods.cid}'>{$goods.cname}</option>
+						<list from='$category' name='c'>
+							<option value='{$c.cid}'>{$c._name}</option>
+						</list>
+						</select>
+					</td>
+				</tr>
+					<tr>
+					<td>所在地区</td>
+					<td>
+						<select name='lid'>
+						<option value='{$goods.lid}'>{$goods.lname}</option>
+						<list from='$locality' name='l'>
+							<option value='{$l.lid}'>{$l._name}</option>
+						</list>
+						</select>
+					</td>
+				</tr>
+					<tr>
+					<td>商品主标题</td>
+					<td>
+					<input type='text' name='main_title' class='w200' value='{$goods.main_title}'/>
+					</td>
+				</tr>
+						<tr>
+					<td>商品副标题</td>
+					<td>
+					
+					<textarea name='sub_title' class='w300 h100' >{$goods.sub_title}</textarea>
+					</td>
+				</tr>
+						<tr>
+					<td>现价</td>
+					<td>
+					<input type='text' name='price' value='{$goods.price}'/>
+					</td>
+				</tr>
+						<tr>
+					<td>原价</td>
+					<td>
+					<input type='text' name='old_price' value='{$goods.old_price}'/>
+					</td>
+				</tr>
+				<tr>
+					<td>上架时间</td>
+					<td>
+						<input type='text' readonly="readonly" id='begin_time' name='begin_time' value="{$goods.begin_time|date:'Y-m-d H:i:s',@@}" />
+					</td>
+				</tr>
+
+				<tr>
+					<td>下架时间</td>
+					<td>
+						<input type='text' readonly="readonly" id='end_time' name='end_time' value="{$goods.end_time|date:'Y-m-d H:i:s',@@}"/>
+					</td>
+				</tr>
+				<script>
+ 					$('#begin_time').calendar({format: 'yyyy/MM/dd HH:mm:ss'});
+		 			$('#end_time').calendar({format: 'yyyy/MM/dd HH:mm:ss'});
+ 				</script>
+				<tr>
+					<td>商品展示图</td>
+					<td>
+						<upload size='5' type='jpg,png,gif' limit='1' name='goods_img' thumb='460,280,200,100,310,185,90,55'/>
+						<img width='200' src='__ROOT__/{$goods.goods_img}'/>
+						<input type='hidden' name='old_img' value='{$goods.goods_img}'/>
+					</td>
+				</tr>
+				<tr>
+					<td>商品服务</td>
+					<td>
+						<foreach from='$server' key='$k' value='$v'>
+						<if value="in_array($k,$goods['goods_server'])">
+							
+						<input type="checkbox" checked=true name='goods_server[]' value='{$k}'/>
+						{$v.name}
+						<else/>
+						
+						<input type="checkbox"  name='goods_server[]' value='{$k}'/>
+						{$v.name}
+						
+					</if>
+						</foreach>
+					</td>
+				</tr>
+				<tr>
+					<td>商品细节展示</td>
+					<td>
+						<ueditor name='detail' width='800' height='200' content='{$goods.detail}'/>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type='submit'  class='btn1'></td>
+
+				</tr>
+			</tbody>
+
+		</table>
+
+	</form>
+
+</div>
+</body>
+</html>

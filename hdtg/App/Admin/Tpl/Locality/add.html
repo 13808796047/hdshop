@@ -1,0 +1,72 @@
+<load file="./hdtg/App/Admin/Tpl/Common/header.html" />
+
+<script type="text/javascript" src='__PUBLIC__/js/locality.js'></script>
+<div id="map">
+	<span class='title'>添加地区</span>
+</div>
+<div id="content">
+	<form  onsubmit="return hd_submit(this,'{|U:index}')"   class='hd-form' method="post">
+		<table class='table1'>
+
+			<tbody>
+				<tr>
+					<td >所属地区</td>
+					<td>
+
+						<select name='pid'>
+				
+							<if value='$parent.lid'>
+
+							<option value='{$parent.lid}'>{$parent.lname}</option>
+							<else/>
+							<option value='0'>顶级地区</option>
+
+						</if>
+							<list from='$level' name='v'>
+							
+								<option value='{$v.lid}'>{$v._name}</option>
+							</list>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td >地区名称</td>
+					<td>
+						<input type="text" name="lname" />
+					</td>
+				</tr>
+				
+				<tr>
+					<td>地区排序</td>
+					<td>
+						<input name="sort" type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td>是否显示</td>
+					<td>
+						<lable>
+							<input type="radio" checked="true" name="display" value="1"/>
+							<span>显示</span>
+						</lable>
+						<lable>
+							<input type="radio" name="display" value="0"/>
+							<span>隐藏</span>
+						</lable>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type='submit'  class='btn1'></td>
+
+				</tr>
+			</tbody>
+
+		</table>
+
+	</form>
+
+</div>
+</body>
+</html>

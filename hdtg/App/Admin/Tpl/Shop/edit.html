@@ -1,0 +1,58 @@
+<load file="./hdtg/App/Admin/Tpl/Common/header.html" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AC37be9efe7459c38f04c34a964155a2"></script>
+<script type="text/javascript" src='__PUBLIC__/js/shop.js'></script>
+<div id="map">
+	<span class='title'>编辑商铺</span>
+</div>
+<div id="content">
+	<form  onsubmit="return hd_submit(this,'{|U:index}')"  class='hd-form' method="post">
+	<input type='hidden' name='shopid' value='{$field.shopid}'>
+		<table class='table1'>
+
+			<tbody>
+
+				<tr>
+					<td >商铺名称</td>
+					<td>
+						<input type="text" name="shopname" value='{$field.shopname}' />
+					</td>
+				</tr>
+				<tr>
+					<td>商铺地址</td>
+					<td>
+						<input type ='text' class='w300' name='shopaddress' value='{$field.shopaddress}'></td>
+				</tr>
+				<tr>
+					<td>地铁地址</td>
+					<td>
+						<input type='text' name ='metroaddress' class='w300'  value='{$field.metroaddress}'></td>
+				</tr>
+				<tr>
+					<td>商铺电话</td>
+					<td>
+						<input type='text' name ='shoptel' class='w300' value='{$field.shoptel}'></td>
+				</tr>
+
+				<tr>
+					<td>商铺坐标</td>
+					<td>
+						<input id="shopcoord" name="shopcoord" type="text" value='{$field.shopcoord}'/>
+					<input id="getPoint" class='btn' type="button" value="获取坐标">
+					</td>
+				</tr>
+
+				<tr>
+					
+					<td>
+						<input type='submit'  class='btn1'></td>
+
+				</tr>
+			</tbody>
+
+		</table>
+
+	</form>
+
+</div>
+</body>
+</html>

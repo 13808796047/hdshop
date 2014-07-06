@@ -1,0 +1,95 @@
+<load file="./hdtg/App/Admin/Tpl/Common/header.html" />
+
+<script type="text/javascript" src='__PUBLIC__/js/category.js'></script>
+<div id="map">
+	<span class='title'>修改分类</span>
+</div>
+<div id="content">
+	<form  class='hd-form' onsubmit="return hd_submit(this,'{|U:index}')" method="post">
+	<input type='hidden' name='cid' value='{$category.cid}'>
+		<table class='table1'>
+		
+			<tbody>
+				<tr>
+					<td >所属分类</td>
+					<td>
+
+						<select name='pid'>
+
+							<option value='{$parent.cid}' >{$parent.cname}</option>
+							<option value='0'>顶级分类</option>
+							<list from='$level' name='v'>
+							
+								<option value='{$v.cid}'>{$v._name}</option>
+							</list>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td >分类名称</td>
+					<td>
+						<input type="text" name="cname" value='{$category.cname}' />
+					</td>
+				</tr>
+				<tr>
+					<td>分类标题</td>
+					<td>
+						<input type ='text' name='title' value='{$category.title}'></td>
+				</tr>
+				<tr>
+					<td>分类关键字</td>
+					<td>
+						<input type='text' name ='keywords' class='w300' value='{$category.keywords}'></td>
+				</tr>
+				<tr>
+					<td>分类描述</td>
+					<td>
+						<textarea  class='w300 h100' name="description" >{$category.description}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>分类排序</td>
+					<td>
+						<input name="sort" type="text" value='{$category.sort}'/>
+					</td>
+				</tr>
+				<tr>
+					<td>是否显示</td>
+					<td>
+						<if value='$category.display'>
+
+						<lable>
+							<input type="radio" checked="true" name="display" value="1"/>
+							<span>显示</span>
+						</lable>
+						<lable>
+							<input type="radio" name="display" value="0"/>
+							<span>隐藏</span>
+						</lable>
+						<else/>
+						<lable>
+							<input type="radio" checked="true" name="display" value="1"/>
+							<span>显示</span>
+						</lable>
+						<lable>
+							<input type="radio" name="display"  checked="true" value="0"/>
+							<span>隐藏</span>
+						</lable>
+					</if>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type='submit'  class='btn1'></td>
+
+				</tr>
+			</tbody>
+
+		</table>
+
+	</form>
+
+</div>
+</body>
+</html>

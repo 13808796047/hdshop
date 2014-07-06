@@ -1,0 +1,78 @@
+<?php if(!defined('HDPHP_PATH'))exit;
+return array (
+  1 => 
+  array (
+    'cid' => '1',
+    'cname' => '美食',
+    'keywords' => '北京 美食 团购',
+    'title' => '北京火锅',
+    'description' => '北京 美食 团购北京 美食 团购',
+    'sort' => '1',
+    'display' => '1',
+    'pid' => '0',
+    '_level' => 1,
+    '_html' => '',
+    '_name' => '美食',
+  ),
+  3 => 
+  array (
+    'cid' => '3',
+    'cname' => '火锅',
+    'keywords' => '北京 美食 团购',
+    'title' => '北京火锅',
+    'description' => '北京 美食 团购',
+    'sort' => '2',
+    'display' => '1',
+    'pid' => '1',
+    '_level' => 2,
+    '_html' => '',
+    '_first' => true,
+    '_end' => true,
+    '_name' => '└─ 火锅',
+  ),
+  2 => 
+  array (
+    'cid' => '2',
+    'cname' => '电影',
+    'keywords' => '北京 电影 团购',
+    'title' => '电影',
+    'description' => '北京 电影 团购',
+    'sort' => '2',
+    'display' => '1',
+    'pid' => '0',
+    '_level' => 1,
+    '_html' => '',
+    '_name' => '电影',
+  ),
+  4 => 
+  array (
+    'cid' => '4',
+    'cname' => '数码',
+    'keywords' => 'IPhone6',
+    'title' => 'IPhone',
+    'description' => 'IPhone6',
+    'sort' => '3',
+    'display' => '1',
+    'pid' => '0',
+    '_level' => 1,
+    '_html' => '',
+    '_name' => '数码',
+  ),
+  9 => 
+  array (
+    'cid' => '9',
+    'cname' => '三星',
+    'keywords' => '三星',
+    'title' => '三星',
+    'description' => '三星',
+    'sort' => '4',
+    'display' => '1',
+    'pid' => '4',
+    '_level' => 2,
+    '_html' => '',
+    '_first' => true,
+    '_end' => false,
+    '_name' => '└─ 三星',
+  ),
+);
+?>

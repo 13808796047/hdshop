@@ -33,10 +33,9 @@ Class GoodsControl extends CommonControl{
 			 }
 			
 		}else{
-			$shopid = Q('$shopid',NULL,'intval');
+			$shopid = Q('shopid',0,'intval');
 			$db = K('shop');
-			$shop=$db->find($shopid);
-			$this->shop = $shop;
+			$this->shop = $db->find($shopid);
 			$this->category = $this->_category;
 			$this->locality = $this->_locality;
 			$this->goods_server = C('goods_server');

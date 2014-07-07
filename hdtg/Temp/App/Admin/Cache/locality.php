@@ -203,8 +203,19 @@ return array (
     '_level' => 2,
     '_html' => '',
     '_first' => false,
-    '_end' => false,
+    '_end' => true,
     '_name' => '└─ 临沧县',
+  ),
+  20 => 
+  array (
+    'lid' => '20',
+    'lname' => '上海',
+    'pid' => '0',
+    'sort' => '2',
+    'display' => '1',
+    '_level' => 1,
+    '_html' => '',
+    '_name' => '上海',
   ),
 );
 ?>

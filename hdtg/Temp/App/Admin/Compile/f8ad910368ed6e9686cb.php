@@ -50,9 +50,11 @@ HTTPREFERER = '<?php echo $GLOBALS['user']['HTTPREFERER'];?>';
 				<tr>
 					<td >所属商家</td>
 					<td>
-
+						
 						<input type="hidden" name="shopid" value='<?php echo $shop['shopid'];?>'/>
 						<?php echo $shop['shopname'];?>
+					
+						
 					</td>
 
 				</tr>
@@ -155,7 +157,7 @@ endif;?>
 						<link rel="stylesheet" type="text/css" href="http://127.0.0.1/hdshop/hdphp/Extend/Org/Uploadify/uploadify.css" />
             <script type="text/javascript" src="http://127.0.0.1/hdshop/hdphp/Extend/Org/Uploadify/jquery.uploadify.min.js"></script>
             <script type="text/javascript">
-            var HDPHP_CONTROL         = "http://127.0.0.1/hdshop/index.php?a=Admin&c=Goods&m=keditor_upload&g=App";
+            var HDPHP_CONTROL         = "http://127.0.0.1/hdshop/index.php?a=Admin&c=Goods&shopid=&m=keditor_upload&g=App";
             var UPLOADIFY_URL    = "http://127.0.0.1/hdshop/hdphp/Extend/Org/Uploadify/";
             var HDPHP_UPLOAD_THUMB    ="460,280,200,100,310,185,90,55";
 HDPHP_UPLOAD_TOTAL = 0</script>
@@ -173,7 +175,7 @@ HDPHP_UPLOAD_TOTAL = 0</script>
         hd_uploadify_options.upload_img_max_width    ="1000";
         hd_uploadify_options.upload_img_max_    ="1000";
         hd_uploadify_options.success_msg    ="正在上传...";//上传成功提示文字
-        hd_uploadify_options.formData ={water : "1",upload_img_max_width:"1000",upload_img_max_height:"1000",fileSizeLimit:5242880, someOtherKey:1,PHPSESSID:"n4b3nbrcgbce7tm8tmrd7aq2p5",upload_dir:"",hdphp_upload_thumb:"460,280,200,100,310,185,90,55"};
+        hd_uploadify_options.formData ={water : "1",upload_img_max_width:"1000",upload_img_max_height:"1000",fileSizeLimit:5242880, someOtherKey:1,PHPSESSID:"0dl8s1432hpbdt1mh1sjrakdn7",upload_dir:"",hdphp_upload_thumb:"460,280,200,100,310,185,90,55"};
         hd_uploadify_options.thumb_width =200;
         hd_uploadify_options.thumb_height          =150;
         hd_uploadify_options.uploadsSuccessNums = 0;
@@ -209,7 +211,7 @@ HDPHP_UPLOAD_TOTAL = 0</script>
         <script type='text/javascript'>
         $(function(){
                 var ue = UE.getEditor('hd_detail',{
-                imageUrl:'http://127.0.0.1/hdshop/index.php?a=Admin&c=Goods&m=ueditor_upload&g=App&water=1&uploadsize=2000000&maximagewidth=false&maximageheight=false'//处理上传脚本
+                imageUrl:'http://127.0.0.1/hdshop/index.php?a=Admin&c=Goods&shopid=&m=ueditor_upload&g=App&water=1&uploadsize=2000000&maximagewidth=false&maximageheight=false'//处理上传脚本
                 ,zIndex : 0
                 ,autoClearinitialContent:false
                 ,initialFrameWidth:"800" //宽度1000

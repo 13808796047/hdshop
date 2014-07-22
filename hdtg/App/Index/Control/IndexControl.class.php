@@ -4,23 +4,84 @@
  */
 class IndexControl extends CommonControl{
 	Public function __auto(){
+        
 		$this->db = K('goods');
+        $this->setPrice();
+        $this->setCategory();
+        $this->setLocality();
+        $this->setSearchWhere();
+        $this->setOrderUrl();
+        $this->setOrder();
+        
 	}
 	
 
     Public function index(){
     	
     	
-    	$this->setPrice();
-    	$this->setCategory();
-    	$this->setLocality();
-    	$this->setSearchWhere();
-    	$goods =$this->db->getGoods();
+    	
+    	
     	$total=$this->db->getTotal();
-    	$page = new Page();
-    	var_dump($goods);
+    	$page = new Page($total,10);
+    	$data=$this->db->getGoods($page->limit());
+        $this->goods = $this->disGoods($data);
+    	$this->page = $page->show(2);
     	$this->display();
         
+    }
+    private function setOrder(){
+        $order ='';
+        $arr = explode('-',Q('order','t-desc'));
+        switch ($arr[0]) {
+            case 'd':
+               $order = 'begin_time '.$arr[1];
+                break;
+            
+            case 'b':
+               $order = 'buy '.$arr[1];
+                break;
+            case 'p':
+                $order = 'price '.$arr[1];
+                break;
+            case 'p':
+                $order = 'price '.$arr[1];
+                break; 
+            case 't':
+               $order = 'begin_time '.$arr[1];
+                break;  
+        }
+        $this->db->order=$order;
+    }
+    /**
+     * 设置排序模板
+     */
+    Private function setOrderUrl(){
+        $url = url_param_remove('order',__URL__);
+        $orderUrl = array();
+        //default 默认
+        $orderUrl['d']= $url.'/order/t-desc';
+         //buy 销量
+        $orderUrl['b']= $url.'/order/b-desc';
+        //price 降序
+        $orderUrl['p_d']= $url.'/order/p-desc';
+         //price 升序
+        $orderUrl['p_a']= $url.'/order/p-asc';
+        //begin_time
+        $orderUrl['t']= $url.'/order/t-desc';
+        $this->orderUrl = $orderUrl;
+
+    }
+    /**
+     * 处理查询结果
+     */
+    private function disGoods($data){
+        if(!is_array($data)) return;
+        foreach ($data as $k=>$v){
+            $pathInfo = pathinfo($v['goods_img']);
+            $data[$k]['goods_img'] = __ROOT__.'/'.$pathInfo['dirname'].'/'.$pathInfo["filename"].'_310x190.'.$pathInfo['extension'];
+            $data[$k]['sub_title'] = mb_substr($v['sub_title'],0,30,'utf8');
+        }
+        return $data;
     }
     /**
      * 没有cid,只显示顶级分类
@@ -55,8 +116,6 @@ class IndexControl extends CommonControl{
     			
     		
     		}
-    	
-    	
     		$this->topCategory=$tmpArr;
     		if($pid==0){
     			$sonCategory = $db->getCategoryLevel($cid);

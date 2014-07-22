@@ -84,7 +84,7 @@ if($_index_v>=$_total_v):$hd["list"]["v"]["last"]=true;endif;?>
 					<?php }?>
 				</td>
 				<td>
-					<a class='btn btn-success btn-xs' href="<?php echo U(add,array('lid'=>$v['lid']));?>">添加地区</a>
+					<a class='btn btn-success btn-xs' href="<?php echo U(add,array('lid'=>$v['lid']));?>">添加子地区</a>
 					<a class='btn btn-danger btn-xs' href="<?php echo U(edit,array('lid'=>$v['lid']));?>">编辑</a>
 					<a class='btn btn-warning btn-xs delAffirm' href="javascript:hd_ajax('<?php echo U(del);?>',{lid:<?php echo $v['lid'];?>})">删除</a>
 				</td>

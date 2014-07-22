@@ -125,7 +125,7 @@
 	height:56px;
 	float:left;
 	line-height:56px;
-	font-size:34px;
+	font-size:24px;
 	color:#FFF;
 }
 #content .content-left  .buy-intro .discount-price span{
@@ -398,7 +398,11 @@
 	height:auto;
 	float:left;
 }
-
+#content .details{
+	width:100%;
+	height:600px;
+	overflow:hidden;
+}
 /**
  * 评论
  */
@@ -638,4 +642,105 @@
 }
 #content .content-right  .recommend-goods p .num span{
 	color:#ef5438;
+}
+
+/***********************   信息提示窗口 *******************/
+#infoWindow{
+	width:348px;
+	height:164px;
+	border:2px solid #10a6a6;
+	box-shadow:0px 0px 5px #ddd;
+	position:absolute;
+	background:#FFF;
+	left:50%;
+	margin-left:-174px;
+	z-index:1000001;
+	display:none;
+}
+#infoWindow .colse{
+	width:100%;
+	height:12px;
+	position:relative;
+	margin-top:13px;
+}
+#infoWindow .colse a{
+	display:block;
+	right:10px;
+	top:0px;
+	width:10px;
+	position:absolute;
+	height:12px;
+	background:url(../images/dialog-close.png) no-repeat 0px 0px;
+}
+#infoWindow .colse a:hover{
+	background:url(../images/dialog-close.png) no-repeat 0px -40px;
+}
+#infoWindow .status{
+	width:258px;
+	height:52px;
+	margin:0px auto;
+}
+#infoWindow .status li{
+	float:left;
+	height:52px;
+}
+#infoWindow .status li p span{
+	color:red;
+	font-size: 15px;
+	font-weight: bold;
+}
+#infoWindow .status .ico{
+	width:52px;
+	background:url(../images/sys-icons-48.png) no-repeat 0px 0px;
+}
+#infoWindow .status .error{
+	background:url(../images/sys-icons-48.png) no-repeat 0px -200px;
+}
+#infoWindow .status .msg{
+	width:190px;
+	margin-left:10px;
+}
+#infoWindow .status .msg h3{
+	width:100%;
+	height:32px;
+	font-size:16px;
+	color:#333;
+	line-height:32px;
+}
+#infoWindow .status .msg p{
+	font-size:12px;
+	height:20px;
+	line-height:20px;
+	color:#666;
+}
+#infoWindow  .goBtn{
+	width:100%;
+	height:80px;
+	line-height:80px;
+	text-align:center;
+}
+#infoWindow  .goBtn a{
+	display:inline-block;
+	cursor:pointer;
+	padding:0px 10px;
+	height:30px;
+	font-size:14px;
+	border-radius:2px;
+	line-height:30px;
+	text-align:center;
+	border:0;
+	background-color: #29B4A8;
+    background-image: -moz-linear-gradient(center top , #25B0A4, #2EB8AC);
+	background-image: -webkit-linear-gradient(center top , #25B0A4, #2EB8AC);
+	background-image: -o-linear-gradient(center top , #25B0A4, #2EB8AC);
+    border-color: #dddddd;
+    box-shadow: 0 1px 0 #dddddd inset;
+    color:#FFF;
+	margin:0px 10px;
+}
+#infoWindow  .goBtn a:hover{
+	text-decoration:none;
+	background-image: -moz-linear-gradient(center top , #59bfbf, #3dbebe);
+	background-image: -weikit-linear-gradient(center top , #59bfbf, #3dbebe);
+	background-image: -o-linear-gradient(center top , #59bfbf, #3dbebe);
 }

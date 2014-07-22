@@ -163,7 +163,7 @@ endif;?>
             <script type="text/javascript">
             var HDPHP_CONTROL         = "http://127.0.0.1/hdshop/index.php?a=Admin&c=Goods&gid=&m=keditor_upload&g=App";
             var UPLOADIFY_URL    = "http://127.0.0.1/hdshop/hdphp/Extend/Org/Uploadify/";
-            var HDPHP_UPLOAD_THUMB    ="460,280,200,100,310,185,90,55";
+            var HDPHP_UPLOAD_THUMB    ="460,280,200,100,310,190,90,55";
 HDPHP_UPLOAD_TOTAL = 0</script>
             <script type="text/javascript" src="http://127.0.0.1/hdshop/hdphp/Extend/Org/Uploadify/hd_uploadify.js"></script>
 <script type="text/javascript">
@@ -179,7 +179,7 @@ HDPHP_UPLOAD_TOTAL = 0</script>
         hd_uploadify_options.upload_img_max_width    ="1000";
         hd_uploadify_options.upload_img_max_    ="1000";
         hd_uploadify_options.success_msg    ="正在上传...";//上传成功提示文字
-        hd_uploadify_options.formData ={water : "1",upload_img_max_width:"1000",upload_img_max_height:"1000",fileSizeLimit:5242880, someOtherKey:1,PHPSESSID:"0dl8s1432hpbdt1mh1sjrakdn7",upload_dir:"",hdphp_upload_thumb:"460,280,200,100,310,185,90,55"};
+        hd_uploadify_options.formData ={water : "1",upload_img_max_width:"1000",upload_img_max_height:"1000",fileSizeLimit:5242880, someOtherKey:1,PHPSESSID:"0jdd2vbdemd15eae4hkat4btj7",upload_dir:"",hdphp_upload_thumb:"460,280,200,100,310,190,90,55"};
         hd_uploadify_options.thumb_width =200;
         hd_uploadify_options.thumb_height          =150;
         hd_uploadify_options.uploadsSuccessNums = 0;

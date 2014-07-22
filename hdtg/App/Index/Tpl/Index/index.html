@@ -6,7 +6,7 @@
 	<!-- 页面主体开始 -->
 	<div id="main">
 		<div class='content'>
-			<foreach from="$goods" value="$v">
+			<list from="$goods" name='v'>
 			<div class='item'>
 				<div class='cover'>
 					<a href="{|U('Index/Detail/index')}/gid/{$v.gid}"><img src="{$v.goods_img}"/></a>
@@ -25,7 +25,7 @@
 					人已参与
 				</p>
 			</div>
-			</foreach>
+			</list>
 			<div class='c'></div>
 			<div class='page'>
 				{$page}

@@ -58,7 +58,7 @@ Class ShopControl extends CommonControl{
 		$data['shopname'] = data_format($_POST['shopname'],'htmlspecialchars');
 		$data['shopaddress'] = data_format($_POST['shopaddress'],'htmlspecialchars');
 		$data['metroaddress'] = data_format($_POST['metroaddress'],'htmlspecialchars');
-		$data['shopcoord'] = data_format($_POST['shopcoord'],'htmlspecialchars');
+		$data['shopcoord'] = $_POST['shopcoord'];
 		$data['shoptel'] = data_format($_POST['shoptel'],'htmlspecialchars');
 		return $data;
 	}

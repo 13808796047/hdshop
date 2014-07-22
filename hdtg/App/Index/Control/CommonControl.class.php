@@ -8,6 +8,7 @@ Class CommonControl extends Control{
 		}
 		$this->db=K('goods');
 		$this->setNav();
+		$this->userIsLogin = isset($_SESSION[C('RBAC_AUTH_KEY')]);
 	}
 	
 	private function setNav(){

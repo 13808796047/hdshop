@@ -5,6 +5,7 @@
 <link href="__ROOT__/Public/css/reset.css" type="text/css" rel="stylesheet" >
 <link href="__ROOT__/Public/css/common.css" type="text/css" rel="stylesheet" >
 <jquery/>
+<hdjs/>
 <script type="text/javascript" src="__ROOT__/Public/js/common.js"></script>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -61,15 +62,12 @@
 			</div>
 			<!-- 用户相关 -->
 			<div id="user-relevance" class='user-relevance'>
-				
-				<!--登录注册-->
-					<div class='user-nav login-reg'>
-						<a class='title' href="">注册</a>
+				<if value='$userIsLogin'>
+				<div class='user-nav login-reg'>
+						<a class='title' href="{|U:'Member/Login/quit'}">退出</a>
+						<!--我的团购 -->	
+					
 					</div>
-					<div class='user-nav login-reg'>	
-						<a class='title' href="">登录</a>
-					</div>
-				<!--我的团购 -->	
 					<div class='user-nav my-hdtg '>
 						<a class='title' href="">我的团购</a>
 						<ul class="menu">
@@ -82,83 +80,32 @@
 							<li><a href="">账户设置</a></li>
 						</ul>
 					</div>
-				<!-- 最近浏览 -->	
-					<div  class='user-nav recent-view '>
+				<else/>
+				<!--登录注册-->
+					<div class='user-nav login-reg'>
+						<a class='title' href="{|U:'Member/Reg/index'}">注册</a>
+					</div>
+					<div class='user-nav login-reg'>	
+						<a class='title' href="{|U:'Member/Login/index'}">登录</a>
+					</div>
+				
+				</if>
+			
+			
+					<div  class='user-nav recent-view ' url='{|U:'Member/Index/getRecentView'}' goodUrl='{|U:'Index/Detail/index'}' clearView='{|U:'Member/Index/clearRecentView'}'>
 						<a class='title' href="">最近浏览</a>
 						<ul class="menu">
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<p class='clear'><a href="">清空最近浏览记录</a></p>
+							
+						
+						
 						</ul>
 					</div>
-					<div  class='user-nav my-cart '>
-						<a class='title' href=""><i>&nbsp;</i>购物车</a>
+					<!-- 购物车-->
+					<div  class='user-nav my-cart ' id='my-cart' url='{|U:'Member/Cart/index'}' goodUrl='{|U:'Index/Detail/index'}' delCartUrl='{|U:'Member/Cart/del'}'>
+						<a class='title' href="{|U:'Member/Cart/index'}"><i>&nbsp;</i>购物车</a>
 						<ul class="menu">
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><a href="">删除</a></span>
-								</div>					
-							</li>
-							<p class='clear'><a href="">查看我的购物车</a></p>
+							
+							<p>正在加载</p>
 						</ul>
 					</div>
 			</div>

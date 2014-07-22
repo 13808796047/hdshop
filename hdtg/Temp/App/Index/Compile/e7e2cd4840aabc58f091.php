@@ -6,6 +6,31 @@
 <link href="http://127.0.0.1/hdshop/Public/css/common.css" type="text/css" rel="stylesheet" >
 <script type='text/javascript' src='http://127.0.0.1/hdshop/hdphp/Extend/Org/Jquery/jquery-1.8.2.min.js'></script>
 
+<script type='text/javascript' src='http://127.0.0.1/hdshop/hdphp/Extend/Org/Jquery/jquery-1.8.2.min.js'></script>
+<link href='http://127.0.0.1/hdshop/hdphp/../hdjs/css/hdjs.css' rel='stylesheet' media='screen'>
+<script src='http://127.0.0.1/hdshop/hdphp/../hdjs/js/hdjs.js'></script>
+<script src='http://127.0.0.1/hdshop/hdphp/../hdjs/js/slide.js'></script>
+<script src='http://127.0.0.1/hdshop/hdphp/../hdjs/org/cal/lhgcalendar.min.js'></script>
+<script type='text/javascript'>
+HOST = '<?php echo $GLOBALS['user']['HOST'];?>';
+ROOT = '<?php echo $GLOBALS['user']['ROOT'];?>';
+WEB = '<?php echo $GLOBALS['user']['WEB'];?>';
+URL = '<?php echo $GLOBALS['user']['URL'];?>';
+HDPHP = '<?php echo $GLOBALS['user']['HDPHP'];?>';
+HDPHPDATA = '<?php echo $GLOBALS['user']['HDPHPDATA'];?>';
+HDPHPTPL = '<?php echo $GLOBALS['user']['HDPHPTPL'];?>';
+HDPHPEXTEND = '<?php echo $GLOBALS['user']['HDPHPEXTEND'];?>';
+APP = '<?php echo $GLOBALS['user']['APP'];?>';
+CONTROL = '<?php echo $GLOBALS['user']['CONTROL'];?>';
+METH = '<?php echo $GLOBALS['user']['METH'];?>';
+GROUP = '<?php echo $GLOBALS['user']['GROUP'];?>';
+TPL = '<?php echo $GLOBALS['user']['TPL'];?>';
+CONTROLTPL = '<?php echo $GLOBALS['user']['CONTROLTPL'];?>';
+STATIC = '<?php echo $GLOBALS['user']['STATIC'];?>';
+PUBLIC = '<?php echo $GLOBALS['user']['PUBLIC'];?>';
+HISTORY = '<?php echo $GLOBALS['user']['HISTORY'];?>';
+HTTPREFERER = '<?php echo $GLOBALS['user']['HTTPREFERER'];?>';
+</script>
 <script type="text/javascript" src="http://127.0.0.1/hdshop/Public/js/common.js"></script>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -62,15 +87,12 @@
 			</div>
 			<!-- 用户相关 -->
 			<div id="user-relevance" class='user-relevance'>
-				
-				<!--登录注册-->
-					<div class='user-nav login-reg'>
-						<a class='title' href="">注册</a>
+				<?php if($userIsLogin){?>
+				<div class='user-nav login-reg'>
+						<a class='title' href="<?php echo U('Member/Login/quit');?>">退出</a>
+						<!--我的团购 -->	
+					
 					</div>
-					<div class='user-nav login-reg'>	
-						<a class='title' href="">登录</a>
-					</div>
-				<!--我的团购 -->	
 					<div class='user-nav my-hdtg '>
 						<a class='title' href="">我的团购</a>
 						<ul class="menu">
@@ -83,83 +105,32 @@
 							<li><a href="">账户设置</a></li>
 						</ul>
 					</div>
-				<!-- 最近浏览 -->	
-					<div  class='user-nav recent-view '>
+				<?php  }else{ ?>
+				<!--登录注册-->
+					<div class='user-nav login-reg'>
+						<a class='title' href="<?php echo U('Member/Reg/index');?>">注册</a>
+					</div>
+					<div class='user-nav login-reg'>	
+						<a class='title' href="<?php echo U('Member/Login/index');?>">登录</a>
+					</div>
+				
+				<?php }?>
+			
+			
+					<div  class='user-nav recent-view ' url='<?php echo U('Member/Index/getRecentView');?>' goodUrl='<?php echo U('Index/Detail/index');?>' clearView='<?php echo U('Member/Index/clearRecentView');?>'>
 						<a class='title' href="">最近浏览</a>
 						<ul class="menu">
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><del>36</del></span>
-								</div>					
-							</li>
-							<p class='clear'><a href="">清空最近浏览记录</a></p>
+							
+						
+						
 						</ul>
 					</div>
-					<div  class='user-nav my-cart '>
-						<a class='title' href=""><i>&nbsp;</i>购物车</a>
+					<!-- 购物车-->
+					<div  class='user-nav my-cart ' id='my-cart' url='<?php echo U('Member/Cart/index');?>' goodUrl='<?php echo U('Index/Detail/index');?>' delCartUrl='<?php echo U('Member/Cart/del');?>'>
+						<a class='title' href="<?php echo U('Member/Cart/index');?>"><i>&nbsp;</i>购物车</a>
 						<ul class="menu">
-							<li>
-								<a class='image' href="">
-									<img src="http://p1.meituan.net/80.50/deal/__10119572__2038276.jpg" />
-								</a>
-								<div>
-									<h4>
-										<a href="">上岛咖啡双人下午茶套餐，五道口</a>
-									</h4>
-									<span><strong>¥25</strong><a href="">删除</a></span>
-								</div>					
-							</li>
-							<p class='clear'><a href="">查看我的购物车</a></p>
+							
+							<p>正在加载</p>
 						</ul>
 					</div>
 			</div>
@@ -243,7 +214,18 @@
 	<!-- 页面主体开始 -->
 	<div id="main">
 		<div class='content'>
-			<?php if(is_array($goods)):?><?php  foreach($goods as $v){ ?>
+			<?php $hd["list"]["v"]["total"]=0;if(isset($goods) && !empty($goods)):$_id_v=0;$_index_v=0;$lastv=min(1000,count($goods));
+$hd["list"]["v"]["first"]=true;
+$hd["list"]["v"]["last"]=false;
+$_total_v=ceil($lastv/1);$hd["list"]["v"]["total"]=$_total_v;
+$_data_v = array_slice($goods,0,$lastv);
+if(count($_data_v)==0):echo "";
+else:
+foreach($_data_v as $key=>$v):
+if(($_id_v)%1==0):$_id_v++;else:$_id_v++;continue;endif;
+$hd["list"]["v"]["index"]=++$_index_v;
+if($_index_v>=$_total_v):$hd["list"]["v"]["last"]=true;endif;?>
+
 			<div class='item'>
 				<div class='cover'>
 					<a href="<?php echo U('Index/Detail/index');?>/gid/<?php echo $v['gid'];?>"><img src="<?php echo $v['goods_img'];?>"/></a>
@@ -262,7 +244,12 @@
 					人已参与
 				</p>
 			</div>
-			<?php }?><?php endif;?>
+			<?php $hd["list"]["v"]["first"]=false;
+endforeach;
+endif;
+else:
+echo "";
+endif;?>
 			<div class='c'></div>
 			<div class='page'>
 				<?php echo $page;?>

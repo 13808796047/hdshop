@@ -2,51 +2,49 @@
 <!-- 载入公共头部文件结束 -->
 	<link href="__PUBLIC__/css/detail.css" type="text/css" rel="stylesheet" >
 	<div id="map" class='position'>
-		<a href="北京团购">北京团购</a><span>»</span><a href="电影团购">电影团购</a><span>»</span><a href="网票网">网票网</a>
+		<a href="{|U('Index/index/index')}/lid/{$detail.lid}">{$detail.lname}</a><span>>></span><a href="{|U('Index/index/index')}/cid/{$detail.cid}">{$detail.cname}</a><span>>></span>{$detail.shopname}
 	</div>
 	<div id="content" class='position' style="height:3000px;">
 		<div class='content-left'>
 			<div class="goods-intro">
 				<div class='goods-title'>
-					<h1>【北京等】COSTA COFFEE</h1>
-					<h3>仅售25元！价值36元的COSTA COFFEE手调类饮品1杯（中杯），北京、天津、石家庄、大连、沈阳、哈尔滨、青岛所有门店通用，给你一个爱上COSTA的理由。</h3>
+					<h1>{$detail.main_title}</h1>
+					<h3>{$detail.sub_title}</h3>
 				</div>
 				<div class='deal-intro'>
 					<div class='buy-intro'>
 						<div class='price'>
 							<div class='discount-price'>
-								<span>¥</span>25
+								<span>¥</span>{$detail.price}
 							</div>
 							<div class='cost-price'>
-								<span class='discount'>3.6折</span>
-								门店价<b>¥36</b>
+								<span class='discount'>{$detail.zhekou}折</span>
+								门店价¥<del>{$detail.old_price}</del>
 							</div>
 						</div>
 						<div class='deal-buy-cart'>
-							<a href="" class='buy'></a>
-							<a href="" class='cart'></a>
+							<a href="{|U('Member/Buy/index')}/gid/{$detail.gid}" class='buy'></a>
+							<a href="javascript:void(0);" url="{|U:'Member/Cart/add'}/gid/{$detail.gid}" id='addCart' class='cart'></a>
 						</div>
 						<div class='purchased'>
 							<p class='people'>
-								<span>479</span>人已团购
+								<span>{$detail.buy}</span>人已团购
 							</p>
 							<p class='time'>
-								剩余<span>3</span>天以上
+								{$detail.end_time}
 							</p>
 						</div>
 						<ul class='refund-intro'>
+						<list from="$detail['server']" name='v'>
 							<li>
-								<span class='ico'></span>
-								<span class='text'>假一陪十</span>
+								<span class='ico'>{$v.img}</span>
+								<span class='text'>{$v.name}</span>
 							</li>
-							<li>
-								<span class='ico'></span>
-								<span class='text'>假一陪十</span>
-							</li>
+						</list>
 						</ul>
 					</div>
 					<div class='image-intro'>
-						<img src="http://p1.meituan.net/deal/__10119572__2038276.jpg"/>
+						<img src="{$detail.goods_img}"/>
 					</div>
 				</div>
 				<div class='collect'>
@@ -67,28 +65,28 @@
 				<div id="shop-site" class='shop-site'>
 					<p class='site-title'>商家位置</p>
 					<div class='box'>
-						<div class='map'>
+						<div id='bMap' class='map'>
 							
 						</div>
 						<div class='info'>
-							<h3>戈拿旺巴西烤肉 （海淀店）</h3>
+							<h3>{$detail.shopname}</h3>
 							<dl>
 								<dt>地址:</dt>
-								<dd>西城区广安门内大街6号枫桦豪景西配楼（菜市口路口）</dd>
+								<dd>{$detail.shopaddress}</dd>
 							</dl>
 							<dl>
 								<dt>地铁:</dt>
-								<dd>距菜市口站约275米</dd>
+								<dd>{$detail.metroaddress}</dd>
 							</dl>
 							<dl>
 								<dt>电话:</dt>
-								<dd>010-82133026/82113020</dd>
+								<dd>{$detail.shoptel}</dd>
 							</dl>
 						</div>
 					</div>
 				</div>
 				<div id="details"  class='details'>
-					<img src="__ROOT__/Public/images/goods.png">
+					{$detail.detail}
 				</div>
 				<div id="comment" class='comment'>
 					<div class='comment-list-title'>
@@ -142,14 +140,61 @@
 				</div>
 			</div>
 		</div>
-		
+
 		
 		
 	</div>		
+<!-- 购物车JS -->
+	<div class="c"></div>
+	<div id="cover"></div>
+	<div id="infoWindow">
+		
+	</div>
+	<script src="__PUBLIC__/js/detail.js"> </script>
+	<script>
+		var cartSucc = "<div class='colse'><a href='javascript:hideInfoWindow();'></a></div>\
+			<ul class='status'>\
+			<li class='ico'></li>\
+			<li class='msg'>\
+				<h3>添加成功!</h3>\
+				<p>购物车内共有<span id='total'></span>种商品</p>\
+			</li>\
+		</ul>\
+		<div class='goBtn'>\
+			<a href='javascript:hideInfoWindow();'>继续浏览</a>\
+			<a href='{|U('Member/Cart/index')}'>查看购物车</a>\
+		</div>";
+		var collectSucc = "<div class='colse'><a href='javascript:hideInfoWindow();'></a></div>\
+			<ul class='status'>\
+			<li class='ico'></li>\
+			<li class='msg'>\
+				<h3>收藏成功!</h3>\
+			</li>\
+		</ul>\
+		<div class='goBtn'>\
+			<a href='javascript:hideInfoWindow();'>继续浏览</a>\
+			<a href='{|U('Member/Index/collect')}'>查看我的收藏</a>\
+		</div>";
+		var userIsLogin = false;
+		<if value="$userIsLogin">
+			userIsLogin = true;
+		</if>
+	</script>
 
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AC37be9efe7459c38f04c34a964155a2"></script>
+<script >
+	var shopcoord = {$detail.shopcoord};
+	//百度地图API
+	var map = new BMap.Map('bMap');
+	var point = new BMap.Point(shopcoord.lng,shopcoord.lat);
+	map.centerAndZoom(point,15);
+	map.enableScrollWheelZoom();
+	map.addControl(new BMap.NavigationControl( {anchor: BMAP_ANCHOR_TOP_RIGHT, offset: new BMap.Size(10, 10)}));
+	var marker = new BMap.Marker(point);        // 创建标注
 
-
-
+	map.addOverlay(marker);                     // 将标注添加到地图中
+	
+</script>
 
 
 
